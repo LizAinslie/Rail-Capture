@@ -8,6 +8,10 @@ var Constants = {
 	Commands: {
 		TAKE_SCREENSHOT: 'take_screenshot',
 	},
+	urls: [
+		'https://i.railrunner16.me/sharex',
+		'https://api.imgur.com/3/image',
+	],
 };
 
 var contentURL = '';
@@ -60,13 +64,10 @@ function gotMessage(request, sender, sendResponse) {
 }
  
 function sendMessage(msg, tab) {
-	console.log('sending message');
-
 	chrome.tabs.sendMessage(tab.id, msg, function(response) {});
 }
 
 function saveFile(dataURI) {
-
 	// convert base64 to raw binary data held in a string
 	// doesn't handle URLEncoded DataURIs
 	var byteString = atob(dataURI.split(',')[1]);
@@ -86,33 +87,67 @@ function saveFile(dataURI) {
 		type: mimeString
 	});
 	
-	var formData = new FormData();
+	var formData = new FormData(), service;
 	
-	chrome.storage.sync.get({
+	chrome.storage.local.get({
 		username: null,
-		password: null
+		password: null,
+		service: 0,
 	}, function(items) {
-		formData.append('user', items.username);
-		formData.append('pass', items.password);
-	});
-	
-	formData.append('file', blob);
-	
-	$.ajax({
-		type: 'POST',
-		url: 'https://i.railrunner16.me/sharex',
-		data: formData,
-		contentType: false,
-		processData: false,
-		success: function(res) {
-			const url = 'https://i.railrunner16.me/' + res.file;
-			copyToClipboard(url);
-			openInNewTab(url);
-		},
-		error: function(xhr) {
-			if (xhr.status == 403) return alert('Unauthorised, you need an account to upload to i.railrunner16.me!')
-			alert("An error occured: " + xhr.status + " " + xhr.statusText);
+		service = items.service;
+
+		switch (service) {
+			case 0:
+				if (!items.username || !items.password) return alert('You must be authenticated to Upload to i.railrunner16.me!')
+				formData.append('user', items.username);
+				formData.append('pass', items.password);
+				formData.append('file', blob);
+				break;
+			case 1:
+				formData.append('image', blob);
+				break;
+			default:
+				break;
 		}
+
+		var uploadUrl = Constants.urls[service];
+	
+		$.ajax({
+			type: 'POST',
+			url: uploadUrl,
+			data: formData,
+			contentType: false,
+			processData: false,
+			beforeSend(xhr) {
+				switch (service) {
+					case 0:
+						break;
+					case 1:
+						console.log('imgur');
+						xhr.setRequestHeader('Authorization', 'Client-ID 77574c7ca6bd774')
+						break;
+				}
+			},
+			success(res) {
+				var url;
+				switch (service) {
+					case 0:
+						url = 'https://i.railrunner16.me/' + res.file;
+						break;
+					case 1:
+						url = res.data.link;
+						break;
+					default:
+						break;
+				}
+
+				copyToClipboard(url);
+				openInNewTab(url);
+			},
+			error(xhr) {
+				alert("An error occured: " + xhr.status + " " + xhr.statusText);
+			}
+		});
 	});
 }
 
