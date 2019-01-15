@@ -3,7 +3,7 @@
 	"version": "0.2.2",
 	"manifest_version": 2,
 	"description": "Like ShareX, but for ChromeOS!",
-	"defaultLocale": "en",
+	"default_locale": "en",
 	
 	"options_page": "views/config.view.html",
 	
