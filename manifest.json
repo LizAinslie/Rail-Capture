@@ -1,9 +1,12 @@
 {
 	"name": "Rail Capture",
-	"version": "0.2.0",
+	"version": "0.2.2",
 	"manifest_version": 2,
 	"description": "Like ShareX, but for ChromeOS!",
-
+	"defaultLocale": "en",
+	
+	"options_page": "views/config.view.html",
+	
 	"icons": {
 		"16": "img/icon16.png",
 		"48": "img/icon48.png",
@@ -43,11 +46,10 @@
 	"commands": {
 		"take_screenshot": {
 			"suggested_key": {
-				"default": "Ctrl+Shift+L",
-            	"mac": "Command+Shift+L"
+				"default": "Ctrl+L",
+            	"mac": "Command+L"
 			},
-			"description": "Take a screenshot",
-			"global": true
+			"description": "Take a screenshot"
 		}
 	}
 }

@@ -1,3 +1,5 @@
+/* global chrome, Image, Blob, atob, $ */
+
 var Constants = {
 	w: 500,
 	h: 500,
@@ -37,7 +39,7 @@ function capture(coords) {
 }
  
 chrome.browserAction.onClicked.addListener(function(tab) {
-    contentURL = tab.url;
+	contentURL = tab.url;
 
 	sendMessage({type: 'start-screenshots'}, tab);
 });
@@ -52,8 +54,7 @@ chrome.commands.onCommand.addListener(function(command) {
 chrome.extension.onMessage.addListener(gotMessage);
  
 function gotMessage(request, sender, sendResponse) {
-	if (request.type == "coords")
-		capture(request.coords);
+	if (request.type == "coords") capture(request.coords);
  
 	sendResponse({}); // snub them.
 }
@@ -67,26 +68,34 @@ function sendMessage(msg, tab) {
 function saveFile(dataURI) {
 
 	// convert base64 to raw binary data held in a string
-    // doesn't handle URLEncoded DataURIs
-    var byteString = atob(dataURI.split(',')[1]);
+	// doesn't handle URLEncoded DataURIs
+	var byteString = atob(dataURI.split(',')[1]);
 
-    // separate out the mime component
-    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+	// separate out the mime component
+	var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
 
-    // write the bytes of the string to an ArrayBuffer
-    var ab = new ArrayBuffer(byteString.length);
-    var ia = new Uint8Array(ab);
-    for (var i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
-    }
-
-    // create a blob for writing to a file
-    var blob = new Blob([ab], {type: mimeString});
-    
-    var formData = new FormData();
+	// write the bytes of the string to an ArrayBuffer
+	var ab = new ArrayBuffer(byteString.length);
+	var ia = new Uint8Array(ab);
+	for (var i = 0; i < byteString.length; i++) {
+		ia[i] = byteString.charCodeAt(i);
+	}
 	
-	formData.append('user', 'RailRunner16');
-	formData.append('pass', '01101100l');
+	// create a blob for writing to a file
+	var blob = new Blob([ab], {
+		type: mimeString
+	});
+	
+	var formData = new FormData();
+	
+	chrome.storage.sync.get({
+		username: null,
+		password: null
+	}, function(items) {
+		formData.append('user', items.username);
+		formData.append('pass', items.password);
+	});
+	
 	formData.append('file', blob);
 	
 	$.ajax({
@@ -101,6 +110,7 @@ function saveFile(dataURI) {
 			openInNewTab(url);
 		},
 		error: function(xhr) {
+			if (xhr.status == 403) return alert('Unauthorised, you need an account to upload to i.railrunner16.me!')
 			alert("An error occured: " + xhr.status + " " + xhr.statusText);
 		}
 	});
