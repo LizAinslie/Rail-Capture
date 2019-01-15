@@ -1,0 +1,53 @@
+{
+	"name": "Rail Capture",
+	"version": "0.2.0",
+	"manifest_version": 2,
+	"description": "Like ShareX, but for ChromeOS!",
+
+	"icons": {
+		"16": "img/icon16.png",
+		"48": "img/icon48.png",
+		"128": "img/icon128.png"
+	},
+	
+	"background": {
+		"scripts": [
+			"js/jquery.min.js",
+			"js/background.js"
+		],
+		"persistent": false
+	},
+	
+	"content_scripts": [
+		{
+			"matches": ["http://*/*", "https://*/*"],
+			"js": ["js/content.js"],
+	        "run_at": "document_end",
+	        "all_frames": true
+		}
+	],
+	
+	"browser_action": {
+		"default_title": "Rail Capture",
+		"default_icon": "img/icon.png"
+	},
+	
+	"permissions": [
+		"tabs",
+		"activeTab",
+		"http://*/*",
+		"https://*/*",
+		"clipboardWrite"
+	],
+	
+	"commands": {
+		"take_screenshot": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+L",
+            	"mac": "Command+Shift+L"
+			},
+			"description": "Take a screenshot",
+			"global": true
+		}
+	}
+}
