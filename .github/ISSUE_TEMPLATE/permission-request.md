@@ -12,3 +12,6 @@ Put the permission name here as used in `manifest.json`. Preferably use inline c
 
 **What Will this Permission be Used For?**
 Clearly and concisely describe what you want this permission for. What are you trying to achieve?
+
+**What Browser Will this Permission be Required in?**
+[Firefox | Chrome]
