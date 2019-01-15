@@ -1,8 +1,0 @@
-// These are just placeholder values for what is to come.
-
-{
-  "hello_string": {
-    "message": "Greetings, elf!",
-    "description": "Shown when the app loads"
-  }
-}
