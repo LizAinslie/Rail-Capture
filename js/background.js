@@ -5,9 +5,6 @@ var Constants = {
 	h: 500,
 	x: 200,
 	y: 200,
-	Commands: {
-		TAKE_SCREENSHOT: 'take_screenshot',
-	},
 	urls: [
 		'https://i.railrunner16.me/sharex',
 		'https://api.imgur.com/3/image',
@@ -46,13 +43,6 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 	contentURL = tab.url;
 
 	sendMessage({type: 'start-screenshots'}, tab);
-});
-
-chrome.commands.onCommand.addListener(function(command) {
-	if (command === Constants.Commands.TAKE_SCREENSHOT) chrome.tabs.getCurrent(function(tab) {
-		sendMessage({type: 'start-screenshots'}, tab);
-	});
-	else return;
 });
 
 chrome.extension.onMessage.addListener(gotMessage);
@@ -98,7 +88,7 @@ function saveFile(dataURI) {
 
 		switch (service) {
 			case 0:
-				if (!items.username || !items.password) return alert('You must be authenticated to Upload to i.railrunner16.me!')
+				if (!items.username || !items.password) return alert(chrome.i18n.getMessage('errNoAuth', 'i.railrunner16.me'));
 				formData.append('user', items.username);
 				formData.append('pass', items.password);
 				formData.append('file', blob);
@@ -145,7 +135,7 @@ function saveFile(dataURI) {
 				openInNewTab(url);
 			},
 			error(xhr) {
-				alert("An error occured: " + xhr.status + " " + xhr.statusText);
+				alert(chrome.i18n.getMessage('errGenric', xhr.status + ' ' + xhr.statusText));
 			}
 		});
 	});
@@ -162,7 +152,7 @@ function copyToClipboard(text) {
 		document.execCommand('Copy');
 		document.body.removeChild(input);
 	} catch (e) {
-		alert('Error copying to clipboard: ' + e.toString());
+		alert(chrome.i18n.getMessage('errClipboard', e.toString()));
 	}
 }
 

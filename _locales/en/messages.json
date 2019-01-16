@@ -1,0 +1,34 @@
+{
+    "errNoAuth": {
+        "message": "You must be authenticated to upload to $url$.",
+        "description": "User is unauthenticated",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "i.railrunner16.me"
+            }
+        }
+    },
+
+    "errGeneric": {
+        "message": "An error occured: $err$",
+        "description": "A generic error notification",
+        "placeholders": {
+            "err": {
+                "content": "$1",
+                "example": "TypeError: Cannot read property 'link' of undefined."
+            }
+        }
+    },
+    
+    "errClipboard": {
+        "message": "There was an error while copying to clipboard: $err$",
+        "description": "An error notification about a clipboard issue",
+        "placeholders": {
+            "err": {
+                "content": "$1",
+                "example": "TypeError: Cannot read property 'link' of undefined."
+            }
+        }
+    }
+}
