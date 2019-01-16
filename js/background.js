@@ -79,7 +79,7 @@ function saveFile(dataURI) {
 	
 	var formData = new FormData(), service;
 	
-	chrome.storage.local.get({
+	chrome.storage.sync.get({
 		username: null,
 		password: null,
 		service: 0,

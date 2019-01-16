@@ -1,0 +1,34 @@
+{
+    "errNoAuth": {
+        "message": "Debes estar autenticado para subir a $url$.",
+        "description": "El usuario no está autenticado",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "i.railrunner16.me"
+            }
+        }
+    },
+
+    "errGeneric": {
+        "message": "Ocurrió un error: $err$",
+        "description": "Una notificación de error genérica",
+        "placeholders": {
+            "err": {
+                "content": "$1",
+                "example": "TypeError: Cannot read property 'link' of undefined."
+            }
+        }
+    },
+    
+    "errClipboard": {
+        "message": "Se produjo un error al copiar al portapapeles: $err$",
+        "description": "Una notificación de error sobre un problema del portapapeles",
+        "placeholders": {
+            "err": {
+                "content": "$1",
+                "example": "TypeError: Cannot read property 'link' of undefined."
+            }
+        }
+    }
+}
