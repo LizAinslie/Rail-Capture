@@ -82,18 +82,18 @@ function saveFile(dataURI) {
 	chrome.storage.sync.get({
 		username: null,
 		password: null,
-		service: 0,
+		service: '1',
 	}, function(items) {
 		service = items.service;
 
 		switch (service) {
-			case 0:
+			case '0':
 				if (!items.username || !items.password) return alert(chrome.i18n.getMessage('errNoAuth', 'i.railrunner16.me'));
 				formData.append('user', items.username);
 				formData.append('pass', items.password);
 				formData.append('file', blob);
 				break;
-			case 1:
+			case '1':
 				formData.append('image', blob);
 				break;
 			default:
@@ -110,21 +110,21 @@ function saveFile(dataURI) {
 			processData: false,
 			beforeSend(xhr) {
 				switch (service) {
-					case 0:
+					case '0':
 						break;
-					case 1:
+					case '1':
 						console.log('imgur');
-						xhr.setRequestHeader('Authorization', 'Client-ID 77574c7ca6bd774')
+						xhr.setRequestHeader('Authorization', 'Client-ID 77574c7ca6bd774');
 						break;
 				}
 			},
 			success(res) {
 				var url;
 				switch (service) {
-					case 0:
+					case '0':
 						url = 'https://i.railrunner16.me/' + res.file;
 						break;
-					case 1:
+					case '1':
 						url = res.data.link;
 						break;
 					default:

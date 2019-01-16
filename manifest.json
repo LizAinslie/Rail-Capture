@@ -1,6 +1,6 @@
 {
 	"name": "Rail Capture",
-	"version": "0.3.2",
+	"version": "0.3.7",
 	"manifest_version": 2,
 	"description": "Like ShareX, but for ChromeOS!",
 	"offline_enabled": false,
@@ -40,10 +40,9 @@
 	"permissions": [
 		"tabs",
 		"activeTab",
-		"http://*/*",
-		"https://*/*",
 		"clipboardWrite",
-		"storage"
+		"storage",
+		"<all_urls>"
 	],
 	
 	"commands": {
