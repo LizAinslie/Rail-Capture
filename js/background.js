@@ -8,6 +8,7 @@ var Constants = {
 	urls: [
 		'https://i.railrunner16.me/sharex',
 		'https://api.imgur.com/3/image',
+		'https://s-ul.eu/api/v1/upload'
 	],
 };
 
@@ -80,9 +81,10 @@ function saveFile(dataURI) {
 	var formData = new FormData(), service;
 	
 	chrome.storage.sync.get({
-		username: null,
-		password: null,
+		username: '',
+		password: '',
 		service: '1',
+		apiKey: '',
 	}, function(items) {
 		service = items.service;
 
@@ -95,6 +97,12 @@ function saveFile(dataURI) {
 				break;
 			case '1':
 				formData.append('image', blob);
+				break;
+			case '2':
+				if (!items.username || !items.password) return alert(chrome.i18n.getMessage('errNoApiKey', 's-ul.eu'));
+				formData.append('wizard', true);
+				formData.append('key', items.apiKey);
+				formData.append('file', blob);
 				break;
 			default:
 				break;
@@ -110,11 +118,11 @@ function saveFile(dataURI) {
 			processData: false,
 			beforeSend(xhr) {
 				switch (service) {
-					case '0':
-						break;
 					case '1':
 						console.log('imgur');
 						xhr.setRequestHeader('Authorization', 'Client-ID 77574c7ca6bd774');
+						break;
+					default:
 						break;
 				}
 			},
@@ -126,6 +134,9 @@ function saveFile(dataURI) {
 						break;
 					case '1':
 						url = res.data.link;
+						break;
+					case '2':
+						url = res.protocol + res.domain + '/' + res.file;
 						break;
 					default:
 						break;

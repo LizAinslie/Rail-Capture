@@ -9,6 +9,17 @@
             }
         }
     },
+    
+    "errNoApiKey": {
+        "message": "Debe tener una clave API para subir a $url$.",
+        "description": "User is unauthenticated",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "s-ul.eu"
+            }
+        }
+    },
 
     "errGeneric": {
         "message": "An error occured: $err$",

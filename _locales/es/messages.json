@@ -9,6 +9,17 @@
             }
         }
     },
+    
+    "errNoAuth": {
+        "message": "Debes estar autenticado para subir a $url$.",
+        "description": "El usuario no está autenticado",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "s-ul.eu"
+            }
+        }
+    },
 
     "errGeneric": {
         "message": "Ocurrió un error: $err$",

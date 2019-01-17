@@ -18,6 +18,7 @@
 					<select name="service" ng-model="service">
 						<option value="0">i.railrunner16.me</option>
 						<option value="1">Imgur</option>
+						<option value="2">S-Ul</option>
 					</select>
 				</div>
 
@@ -29,6 +30,11 @@
 				<div ng-if="service == 0" class="field">
 					<label for="password">Password:</label>
 					<input type="password" name="password" ng-model="password" />
+				</div>
+
+				<div ng-if="service == 2" class="field">
+					<label for="apiKey">API Key</label>
+					<input type="text" name="apiKey" ng-model="apiKey" />
 				</div>
 
 				<button class="ui positive submit button" ng-click="save()">Save</button>
