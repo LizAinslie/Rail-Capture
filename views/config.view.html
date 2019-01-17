@@ -6,15 +6,17 @@
 	</head>
 	<body ng-controller="configPage">
 		<div class="ui top fixed large secondary pointing menu">
-		  	<a class="active item" href="#">Options</a>
-		  	<div class="right menu">
-		  		<a class="ui item" target="_blank" href="https://github.com/RailRunner166/Rail-Capture"><i class="ui github icon"></i></a>
-		  	</div>
+			<a class="active item" href="#">{{ translations.menu.optionsLink }}</a>
+			<div class="right menu">
+				<a class="ui item" target="_blank" href="https://github.com/RailRunner166/Rail-Capture">
+					<i class="ui github icon"></i>
+				</a>
+			</div>
 		</div>
 		<div class="ui container" style="margin-top: 4em;">
 			<div class="ui form">
 				<div class="field">
-					<label for="service">Service:</label>
+					<label for="service">{{ translations.service }}</label>
 					<select name="service" ng-model="service">
 						<option value="0">i.railrunner16.me</option>
 						<option value="1">Imgur</option>
@@ -23,26 +25,26 @@
 				</div>
 
 				<div ng-if="service == 0" class="field">
-					<label for="username">Username:</label>
+					<label for="username">{{ translations.username }}</label>
 					<input type="text" name="username" ng-model="username" />
 				</div>
 
 				<div ng-if="service == 0" class="field">
-					<label for="password">Password:</label>
+					<label for="password">{{ translations.password }}</label>
 					<input type="password" name="password" ng-model="password" />
 				</div>
 
 				<div ng-if="service == 2" class="field">
-					<label for="apiKey">API Key</label>
+					<label for="apiKey">{{ translations.apiKey }}</label>
 					<input type="text" name="apiKey" ng-model="apiKey" />
 				</div>
 
-				<button class="ui positive submit button" ng-click="save()">Save</button>
+				<button class="ui positive submit button" ng-click="save()">{{ translations.save }}</button>
 
 				<div ng-if="showMsg" class="ui positive message">
 					<i class="close icon" ng-click="hideMsg()"></i>
-					<div class="header">Options Saved</div>
-					<p>Go test your settings!</p>
+					<div class="header">{{ translations.messageHeader }}</div>
+					<p>{{ translations.messageText }}</p>
 				</div>
 			</div>
 		</div>

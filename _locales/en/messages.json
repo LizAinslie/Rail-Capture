@@ -1,5 +1,5 @@
 {
-    "errNoAuth": {
+    "error_no_auth": {
         "message": "You must be authenticated to upload to $url$.",
         "description": "User is unauthenticated",
         "placeholders": {
@@ -10,8 +10,8 @@
         }
     },
     
-    "errNoApiKey": {
-        "message": "Debe tener una clave API para subir a $url$.",
+    "error_no_api_key": {
+        "message": "You must have an API key to upload to $url$",
         "description": "User is unauthenticated",
         "placeholders": {
             "url": {
@@ -21,7 +21,7 @@
         }
     },
 
-    "errGeneric": {
+    "error_generic": {
         "message": "An error occured: $err$",
         "description": "A generic error notification",
         "placeholders": {
@@ -32,7 +32,7 @@
         }
     },
     
-    "errClipboard": {
+    "error_clipboard": {
         "message": "There was an error while copying to clipboard: $err$",
         "description": "An error notification about a clipboard issue",
         "placeholders": {
@@ -41,5 +41,45 @@
                 "example": "TypeError: Cannot read property 'link' of undefined."
             }
         }
+    },
+    
+    "ui_options_label_service": {
+        "message": "Service:",
+        "description": "Label text for a service dropdown"
+    },
+    
+    "ui_options_label_username": {
+        "message": "Username:",
+        "description": "Label text for a username input"
+    },
+    
+    "ui_options_label_password": {
+        "message": "Password:",
+        "description": "Label text for a password input"
+    },
+    
+    "ui_options_label_api_key": {
+        "message": "API Key",
+        "description": "Label text for an API key input"
+    },
+    
+    "ui_options_button_save": {
+        "message": "Save",
+        "description": "Save button text"
+    },
+    
+    "ui_options_message_header": {
+        "message": "Options Saved",
+        "description": "Header of options page success message"
+    },
+    
+    "ui_options_message_text": {
+        "message": "Go test your settings!",
+        "description": "Text of options page success message"
+    },
+    
+    "ui_menu_options_link": {
+        "message": "Options",
+        "description": "Text of options page link in menu"
     }
 }

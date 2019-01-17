@@ -1,4 +1,4 @@
-/* global chrome, angular, $ */
+/* global chrome, angular */
 
 var app = angular.module('railCapture', []);
 
@@ -9,39 +9,32 @@ app.controller('configPage', function($scope) {
 	$scope.apiKey = '';
 	$scope.showMsg = false;
 	
+	$scope.translations = {
+		service: chrome.i18n.getMessage('ui_options_label_service'),
+		username: chrome.i18n.getMessage('ui_options_label_username'),
+		password: chrome.i18n.getMessage('ui_options_label_password'),
+		apiKey: chrome.i18n.getMessage('ui_options_label_api_key'),
+		save: chrome.i18n.getMessage('ui_options_button_save'),
+		messageHeader: chrome.i18n.getMessage('ui_options_message_header'),
+		messageText: chrome.i18n.getMessage('ui_options_message_text'),
+		menu: {
+			optionsLink: chrome.i18n.getMessage('ui_menu_options_link'),
+		},
+	};
+	
 	$scope.hideMsg = function() {
 		$scope.showMsg = false;
 	};
 	
 	$scope.save = function() {
-		switch ($scope.service) {
-			case '0':
-				chrome.storage.sync.set({
-					username: $scope.username,
-					password: $scope.password,
-					service: $scope.service,
-				}, function() {
-					$scope.showMsg = true;
-				});
-				break;
-			case '1':
-				chrome.storage.sync.set({
-					service: $scope.service,
-				}, function() {
-					$scope.showMsg = true;
-				});
-				break;
-			case '2':
-				chrome.storage.sync.set({
-					apiKey: $scope.apiKey,
-					service: $scope.service,
-				}, function() {
-					$scope.showMsg = true;
-				});
-				break;
-			default:
-				break;
-		}
+		chrome.storage.sync.set({
+			username: $scope.username,
+			password: $scope.password,
+			service: $scope.service,
+			apiKey: $scope.apiKey,
+		}, function() {
+			$scope.showMsg = true;
+		});
 	};
 
 	$scope.restore = function() {
@@ -53,7 +46,7 @@ app.controller('configPage', function($scope) {
 		}, function(items) {
 			$scope.username = items.username;
 			$scope.password = items.password;
-			$scope.apiKey = items.apiKey
+			$scope.apiKey = items.apiKey;
 			$scope.service = items.service;
 		});
 	};

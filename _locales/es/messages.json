@@ -1,7 +1,7 @@
 {
-    "errNoAuth": {
+    "error_no_auth": {
         "message": "Debes estar autenticado para subir a $url$.",
-        "description": "El usuario no está autenticado",
+        "description": "User is unauthenticated",
         "placeholders": {
             "url": {
                 "content": "$1",
@@ -10,9 +10,9 @@
         }
     },
     
-    "errNoAuth": {
-        "message": "Debes estar autenticado para subir a $url$.",
-        "description": "El usuario no está autenticado",
+    "error_no_api_key": {
+        "message": "Debe tener una clave API para subir a $url$.",
+        "description": "User is unauthenticated",
         "placeholders": {
             "url": {
                 "content": "$1",
@@ -21,9 +21,9 @@
         }
     },
 
-    "errGeneric": {
+    "error_generic": {
         "message": "Ocurrió un error: $err$",
-        "description": "Una notificación de error genérica",
+        "description": "A generic error notification",
         "placeholders": {
             "err": {
                 "content": "$1",
@@ -32,14 +32,54 @@
         }
     },
     
-    "errClipboard": {
+    "error_clipboard": {
         "message": "Se produjo un error al copiar al portapapeles: $err$",
-        "description": "Una notificación de error sobre un problema del portapapeles",
+        "description": "An error notification about a clipboard issue",
         "placeholders": {
             "err": {
                 "content": "$1",
                 "example": "TypeError: Cannot read property 'link' of undefined."
             }
         }
+    },
+    
+    "ui_options_label_service": {
+        "message": "Service:",
+        "description": "Label text for a service dropdown"
+    },
+    
+    "ui_options_label_username": {
+        "message": "Nombre de Usario:",
+        "description": "Label text for a username input"
+    },
+    
+    "ui_options_label_password": {
+        "message": "Contraseña:",
+        "description": "Label text for a password input"
+    },
+    
+    "ui_options_label_api_key": {
+        "message": "Clave de API",
+        "description": "Label text for an API key input"
+    },
+    
+    "ui_options_button_save": {
+        "message": "Guardar",
+        "description": "Save button text"
+    },
+    
+    "ui_options_message_header": {
+        "message": "Opciones salvadas",
+        "description": "Header of options page success message"
+    },
+    
+    "ui_options_message_text": {
+        "message": "¡Ve a probar tu configuración!",
+        "description": "Text of options page success message"
+    },
+    
+    "ui_menu_options_link": {
+        "message": "Opciones",
+        "description": "Text of options page link in menu"
     }
 }

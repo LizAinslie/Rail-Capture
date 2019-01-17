@@ -33,25 +33,41 @@ function cropData(str, coords, callback) {
 }
  
 function capture(coords) {
-	chrome.tabs.captureVisibleTab(null, {format: "png"}, function(data) {
+	chrome.tabs.captureVisibleTab(null, {
+		format: 'png'
+	}, function(data) {
 		cropData(data, coords, function(data) {
 			saveFile(data.dataUri);
 		});
 	});
 }
+
+chrome.commands.onCommand.addListener(function(command) {
+	if (command == 'take-screenshot') {
+		chrome.tabs.getSelected(null, function(tab) {
+			contentURL = tab.url;
+
+			sendMessage({
+				type: 'start-screenshots'
+			}, tab);
+		});
+	}
+});
  
 chrome.browserAction.onClicked.addListener(function(tab) {
 	contentURL = tab.url;
 
-	sendMessage({type: 'start-screenshots'}, tab);
+	sendMessage({
+		type: 'start-screenshots'
+	}, tab);
 });
 
 chrome.extension.onMessage.addListener(gotMessage);
  
 function gotMessage(request, sender, sendResponse) {
-	if (request.type == "coords") capture(request.coords);
+	if (request.type == 'coords') capture(request.coords);
  
-	sendResponse({}); // snub them.
+	sendResponse({});
 }
  
 function sendMessage(msg, tab) {
@@ -90,7 +106,7 @@ function saveFile(dataURI) {
 
 		switch (service) {
 			case '0':
-				if (!items.username || !items.password) return alert(chrome.i18n.getMessage('errNoAuth', 'i.railrunner16.me'));
+				if (!items.username || !items.password) return alert(chrome.i18n.getMessage('error_no_auth', 'i.railrunner16.me'));
 				formData.append('user', items.username);
 				formData.append('pass', items.password);
 				formData.append('file', blob);
@@ -99,7 +115,7 @@ function saveFile(dataURI) {
 				formData.append('image', blob);
 				break;
 			case '2':
-				if (!items.username || !items.password) return alert(chrome.i18n.getMessage('errNoApiKey', 's-ul.eu'));
+				if (!items.username || !items.password) return alert(chrome.i18n.getMessage('error_no_api_key', 's-ul.eu'));
 				formData.append('wizard', true);
 				formData.append('key', items.apiKey);
 				formData.append('file', blob);
@@ -119,7 +135,6 @@ function saveFile(dataURI) {
 			beforeSend(xhr) {
 				switch (service) {
 					case '1':
-						console.log('imgur');
 						xhr.setRequestHeader('Authorization', 'Client-ID 77574c7ca6bd774');
 						break;
 					default:
@@ -146,7 +161,7 @@ function saveFile(dataURI) {
 				openInNewTab(url);
 			},
 			error(xhr) {
-				alert(chrome.i18n.getMessage('errGenric', xhr.status + ' ' + xhr.statusText));
+				alert(chrome.i18n.getMessage('error_generic', xhr.status + ' ' + xhr.statusText));
 			}
 		});
 	});
@@ -163,7 +178,7 @@ function copyToClipboard(text) {
 		document.execCommand('Copy');
 		document.body.removeChild(input);
 	} catch (e) {
-		alert(chrome.i18n.getMessage('errClipboard', e.toString()));
+		alert(chrome.i18n.getMessage('error_clipboard', e.toString()));
 	}
 }
 

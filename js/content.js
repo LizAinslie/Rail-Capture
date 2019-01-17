@@ -1,6 +1,5 @@
-//
-// messages
-//
+/* global chrome */
+
 chrome.runtime.onMessage.addListener(gotMessage);
  
 function gotMessage(request, sender, sendResponse) {
@@ -31,11 +30,7 @@ function sendMessage(msg) {
 
 	console.log('sending message with screenshoot');
 	chrome.runtime.sendMessage(msg, function(response) {});
-};
- 
-//
-// end messages
-//
+}
  
 var ghostElement, startPos, gCoords, startY;
  
@@ -68,6 +63,9 @@ function mouseDown(e) {
 	ghostElement.style.width = "0px";
 	ghostElement.style.height = "0px";
 	ghostElement.style.zIndex = "1000000";
+	ghostElement.style.borderColor = '#343a40';
+	ghostElement.style.borderStyle = 'dashed';
+	ghostElement.style.borderWidth = '1px';
 	document.body.appendChild(ghostElement);
 	
 	document.addEventListener('mousemove', mouseMove, false);
