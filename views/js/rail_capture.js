@@ -7,6 +7,11 @@ app.controller('configPage', function($scope) {
 	$scope.password = '';
 	$scope.service = '1';
 	$scope.showMsg = false;
+	
+	$scope.hideMsg = function() {
+		$scope.showMsg = false;
+	};
+	
 	$scope.save = function() {
 		chrome.storage.sync.set({
 			username: $scope.username,
@@ -16,7 +21,7 @@ app.controller('configPage', function($scope) {
 			$scope.showMsg = true;
 		});
 	};
-	
+
 	$scope.restore = function() {
 		chrome.storage.sync.get({
 			username: '',
@@ -28,10 +33,6 @@ app.controller('configPage', function($scope) {
 			$scope.service = items.service;
 		});
 	};
-	
+
 	$scope.restore();
-	
-	$('.message .close').on('click', function() {
-		$scope.showMsg = false;
-	});
 });

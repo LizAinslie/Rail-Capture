@@ -21,26 +21,23 @@
 					</select>
 				</div>
 
-				<div ng-show="service == 0">
-					<div class="field">
-						<label for="username">Username:</label>
-						<input type="text" name="username" ng-model="username" />
-					</div>
-
-					<div class="field">
-						<label for="password">Password:</label>
-						<input type="password" name="password" ng-model="password" />
-					</div>
+				<div ng-if="service == 0" class="field">
+					<label for="username">Username:</label>
+					<input type="text" name="username" ng-model="username" />
 				</div>
 
-				<div ng-show="showMsg">
-					<div class="ui positive message">
-						<i class="close icon"></i>
-						<div class="header">Options Saved</div>
-						<p>Go test your settings!</p>
-					</div>
+				<div ng-if="service == 0" class="field">
+					<label for="password">Password:</label>
+					<input type="password" name="password" ng-model="password" />
 				</div>
-				<button ng-click="save()">Save</button>
+
+				<button class="ui positive submit button" ng-click="save()">Save</button>
+
+				<div ng-if="showMsg" class="ui positive message">
+					<i class="close icon" ng-click="hideMsg()"></i>
+					<div class="header">Options Saved</div>
+					<p>Go test your settings!</p>
+				</div>
 			</div>
 		</div>
 
