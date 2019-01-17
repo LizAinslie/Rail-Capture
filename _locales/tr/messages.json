@@ -1,0 +1,34 @@
+{
+    "errNoAuth": {
+        "message": "$url$'ye yüklemek için kimliğinizin doğrulanması gerekiyor.",
+        "description": "Kullanıcının kimliği doğrulanmamış",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "i.railrunner16.me"
+            }
+        }
+    },
+
+    "errGeneric": {
+        "message": "Bir hata oluştu: $err$",
+        "description": "Genel bir hata bildirimi",
+        "placeholders": {
+            "err": {
+                "content": "$1",
+                "example": "TypeError: Cannot read property 'link' of undefined."
+            }
+        }
+    },
+    
+    "errClipboard": {
+        "message": "Panoya kopyalarken bir hata oluştu: $err$",
+        "description": "Bir pano sorunu hakkında bir hata bildirimi",
+        "placeholders": {
+            "err": {
+                "content": "$1",
+                "example": "TypeError: Cannot read property 'link' of undefined."
+            }
+        }
+    }
+}
