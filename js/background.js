@@ -104,8 +104,6 @@ function saveFile(dataURI) {
 	}, function(items) {
 		service = items.service;
 
-		console.log(items.apiKey);
-
 		switch (service) {
 			case '0':
 				if (!items.username || !items.password) return alert(chrome.i18n.getMessage('error_no_auth', 'i.railrunner16.me'));
@@ -153,7 +151,6 @@ function saveFile(dataURI) {
 						url = res.data.link;
 						break;
 					case '2':
-						console.log(res);
 						url = res.url;
 						break;
 					default:
