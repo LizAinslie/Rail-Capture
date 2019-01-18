@@ -1,6 +1,6 @@
 {
 	"name": "Rail Capture",
-	"version": "0.3.12",
+	"version": "0.3.13",
 	"manifest_version": 2,
 	"description": "Like ShareX, but for ChromeOS!",
 	"offline_enabled": false,
@@ -47,9 +47,12 @@
 	],
 	
 	"commands": {
-		"toggle-pin": {
+		"take-screenshot": {
 			"suggested_key": {
-				"default": "Alt+Shift+L"
+				"default": "Alt+Shift+L",
+				"mac": "Alt+Shift+L",
+				"chromeos": "Alt+Shift+K",
+				"linux": "Alt+Shift+L"
 			},
 			"description": "Take a screenshot"
 		}

@@ -77,6 +77,21 @@
         "message": "Go test your settings!",
         "description": "Text of options page success message"
     },
+
+    "ui_options_authtype_user": {
+        "message": "Username + Password",
+        "description": "Option text for a username and password auth type"
+    },
+
+    "ui_options_authtype_anonymous": {
+        "message": "Anonymous",
+        "description": "Option text for an anonymous auth type"
+    },
+
+    "ui_options_authtype_apikey": {
+        "message": "API Key",
+        "description": "Option text for an API key auth type"
+    },
     
     "ui_menu_options_link": {
         "message": "Options",

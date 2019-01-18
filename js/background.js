@@ -160,12 +160,15 @@ function saveFile(dataURI) {
 					case '2':
 						url = res.url;
 						break;
+					case '3':
+						url = res.image;
 					default:
 						break;
 				}
 
 				copyToClipboard(url);
-				openInNewTab(url);
+				// openInNewTab(url);
+				createNotif(url, dataURI);
 			},
 			error(xhr) {
 				alert(chrome.i18n.getMessage('error_generic', xhr.status + ' ' + xhr.statusText));
@@ -193,4 +196,18 @@ function openInNewTab(url) {
 	chrome.tabs.create({
 		url,
 	});
+}
+
+function createNotif(url, dataUri) {
+	chrome.notifications.create(url, {
+		type: 'image',
+		iconUrl: dataUri,
+		title: 'Screenshot Taken',
+		message: 'Click to view it at ' + url + '!',
+		imageUrl: dataUri,
+	});
+
+	chrome.notifications.onClicked.addListener(function(notifId) {
+		openInNewTab(notifId);
+	})
 }
