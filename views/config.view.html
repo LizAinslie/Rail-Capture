@@ -17,26 +17,26 @@
 			<div class="ui form">
 				<div class="field">
 					<label for="service">{{ translations.service }}</label>
-					<select name="service" ng-model="service">
+					<select name="service" ng-model="values.service">
 						<option value="0">i.railrunner16.me</option>
 						<option value="1">Imgur</option>
 						<option value="2">S-Ul</option>
 					</select>
 				</div>
 
-				<div ng-if="service == 0" class="field">
+				<div ng-if="values.service == 0" class="field">
 					<label for="username">{{ translations.username }}</label>
-					<input type="text" name="username" ng-model="username" />
+					<input type="text" name="username" ng-model="values.username" />
 				</div>
 
-				<div ng-if="service == 0" class="field">
+				<div ng-if="values.service == 0" class="field">
 					<label for="password">{{ translations.password }}</label>
-					<input type="password" name="password" ng-model="password" />
+					<input type="password" name="password" ng-model="values.password" />
 				</div>
 
-				<div ng-if="service == 2" class="field">
+				<div ng-if="values.service == 2" class="field">
 					<label for="apiKey">{{ translations.apiKey }}</label>
-					<input type="text" name="apiKey" ng-model="apiKey" />
+					<input type="text" name="apiKey" ng-model="values.apiKey" />
 				</div>
 
 				<button class="ui positive submit button" ng-click="save()">{{ translations.save }}</button>

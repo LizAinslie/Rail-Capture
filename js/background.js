@@ -104,6 +104,8 @@ function saveFile(dataURI) {
 	}, function(items) {
 		service = items.service;
 
+		console.log(items.apiKey);
+
 		switch (service) {
 			case '0':
 				if (!items.username || !items.password) return alert(chrome.i18n.getMessage('error_no_auth', 'i.railrunner16.me'));
@@ -115,7 +117,7 @@ function saveFile(dataURI) {
 				formData.append('image', blob);
 				break;
 			case '2':
-				if (!items.username || !items.password) return alert(chrome.i18n.getMessage('error_no_api_key', 's-ul.eu'));
+				if (!items.apiKey) return alert(chrome.i18n.getMessage('error_no_api_key', 's-ul.eu'));
 				formData.append('wizard', true);
 				formData.append('key', items.apiKey);
 				formData.append('file', blob);
@@ -151,7 +153,8 @@ function saveFile(dataURI) {
 						url = res.data.link;
 						break;
 					case '2':
-						url = res.protocol + res.domain + '/' + res.file;
+						console.log(res);
+						url = res.url;
 						break;
 					default:
 						break;

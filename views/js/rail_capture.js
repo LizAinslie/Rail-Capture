@@ -3,10 +3,12 @@
 var app = angular.module('railCapture', []);
 
 app.controller('configPage', function($scope) {
-	$scope.username = '';
-	$scope.password = '';
-	$scope.service = '1';
-	$scope.apiKey = '';
+	$scope.values = {
+		username: '',
+		password: '',
+		service: '1',
+		apiKey: '',
+	};
 	$scope.showMsg = false;
 	
 	$scope.translations = {
@@ -27,12 +29,8 @@ app.controller('configPage', function($scope) {
 	};
 	
 	$scope.save = function() {
-		chrome.storage.sync.set({
-			username: $scope.username,
-			password: $scope.password,
-			service: $scope.service,
-			apiKey: $scope.apiKey,
-		}, function() {
+		console.log($scope.values.apiKey);
+		chrome.storage.sync.set($scope.values, function() {
 			$scope.showMsg = true;
 		});
 	};
@@ -44,10 +42,7 @@ app.controller('configPage', function($scope) {
 			service: '1',
 			apiKey: '',
 		}, function(items) {
-			$scope.username = items.username;
-			$scope.password = items.password;
-			$scope.apiKey = items.apiKey;
-			$scope.service = items.service;
+			$scope.values = items;
 		});
 	};
 
