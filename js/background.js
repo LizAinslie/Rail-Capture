@@ -37,6 +37,12 @@ function capture(coords) {
 		format: 'png'
 	}, function(data) {
 		cropData(data, coords, function(data) {
+			// chrome.tabs.create({url : "/views/editor.html"}, function(tab) {
+			// 	sendMessage({
+			// 		type: 'edit',
+			// 		data: data.dataUri,
+			// 	}, tab);
+			// });
 			saveFile(data.dataUri);
 		});
 	});
@@ -66,7 +72,8 @@ chrome.extension.onMessage.addListener(gotMessage);
  
 function gotMessage(request, sender, sendResponse) {
 	if (request.type == 'coords') capture(request.coords);
- 
+	// if (request.type == 'save-img') saveFile(request.dataUri);
+
 	sendResponse({});
 }
  
