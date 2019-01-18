@@ -1,0 +1,85 @@
+{
+    "error_no_auth": {
+        "message": "Je moet ingelogd zijn  om iets te uploaden naar $url$.",
+        "description": "Gebruiker is niet ingelogd",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "i.railrunner16.me"
+            }
+        }
+    },
+    
+    "error_no_api_key": {
+        "message": "Je moet een API sleutel hebben om te upload naar $url$",
+        "description": "Gebruiker is niet ingelogd",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "s-ul.eu"
+            }
+        }
+    },
+
+    "error_generic": {
+        "message": "Er is een Error ontstaan: $err$",
+        "description": "Een algemene error notificatie",
+        "placeholders": {
+            "err": {
+                "content": "$1",
+                "example": "TypeError: Kan het eigendom 'link' van undefined niet lezen"
+            }
+        }
+    },
+    
+    "error_clipboard": {
+        "message": "Er was een error tijdens het kopiëren naar het klembord: $err$",
+        "description": "Een error notificatie over een klembord probleem",
+        "placeholders": {
+            "err": {
+                "content": "$1",
+                "example": "TypeError: Kan het eigendom 'link' van undefined niet lezen."
+            }
+        }
+    },
+    
+    "ui_options_label_service": {
+        "message": "Service:",
+        "description": "Label text voor een service dropdownmenu"
+    },
+    
+    "ui_options_label_username": {
+        "message": "Gebruikersnaam:",
+        "description": "Label text voor het invoeren van de gebruikersnaam"
+    },
+    
+    "ui_options_label_password": {
+        "message": "Wachtwoord:",
+        "description": "Label text voor het invoeren van het wachtwoord"
+    },
+    
+    "ui_options_label_api_key": {
+        "message": "API Sleutel",
+        "description": "Label text voor het invoeren van de API sleutel"
+    },
+    
+    "ui_options_button_save": {
+        "message": "Opslaan",
+        "description": "Opslaan knop text"
+    },
+    
+    "ui_options_message_header": {
+        "message": "Opties opgeslagen",
+        "description": "Header van de opties pagina succes bericht"
+    },
+    
+    "ui_options_message_text": {
+        "message": "Ga je instellingen testen!",
+        "description": "Text van de opties pagina succes bericht"
+    },
+    
+    "ui_menu_options_link": {
+        "message": "Opties",
+        "description": "Text van de opties link in het menu"
+    }
+}
