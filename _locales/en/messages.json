@@ -78,17 +78,17 @@
         "description": "Text of options page success message"
     },
 
-    "ui_options_authtype_user": {
+    "ui_options_uploadertype_user": {
         "message": "Username + Password",
         "description": "Option text for a username and password auth type"
     },
 
-    "ui_options_authtype_anonymous": {
+    "ui_options_uploadertype_anonymous": {
         "message": "Anonymous",
         "description": "Option text for an anonymous auth type"
     },
 
-    "ui_options_authtype_apikey": {
+    "ui_options_uploadertype_apikey": {
         "message": "API Key",
         "description": "Option text for an API key auth type"
     },

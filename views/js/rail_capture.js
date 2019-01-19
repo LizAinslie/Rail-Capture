@@ -1,8 +1,9 @@
 /* global chrome, angular */
 
-var app = angular.module('railCapture', []);
+const app = angular.module('railCapture', []);
 
 app.controller('configPage', function($scope) {
+	$scope.browser = chrome || browser;
 	$scope.values = {
 		username: '',
 		password: '',
@@ -12,36 +13,41 @@ app.controller('configPage', function($scope) {
 	$scope.showMsg = false;
 	
 	$scope.translations = {
-		service: chrome.i18n.getMessage('ui_options_label_service'),
-		username: chrome.i18n.getMessage('ui_options_label_username'),
-		password: chrome.i18n.getMessage('ui_options_label_password'),
-		apiKey: chrome.i18n.getMessage('ui_options_label_api_key'),
-		save: chrome.i18n.getMessage('ui_options_button_save'),
-		messageHeader: chrome.i18n.getMessage('ui_options_message_header'),
-		messageText: chrome.i18n.getMessage('ui_options_message_text'),
+		service: $scope.browser.i18n.getMessage('ui_options_label_service'),
+		username: $scope.browser.i18n.getMessage('ui_options_label_username'),
+		password: $scope.browser.i18n.getMessage('ui_options_label_password'),
+		apiKey: $scope.browser.i18n.getMessage('ui_options_label_api_key'),
+		save: $scope.browser.i18n.getMessage('ui_options_button_save'),
+		messageHeader: $scope.browser.i18n.getMessage('ui_options_message_header'),
+		messageText: $scope.browser.i18n.getMessage('ui_options_message_text'),
 		menu: {
-			optionsLink: chrome.i18n.getMessage('ui_menu_options_link'),
+			optionsLink: $scope.browser.i18n.getMessage('ui_menu_options_link'),
 		},
+		uploaderTypes: {
+			apiKey: $scope.browser.i18n.getMessage('ui_options_uploadertype_apikey'),
+			user: $scope.browser.i18n.getMessage('ui_options_uploadertype_user'),
+			anonymous: $scope.browser.i18n.getMessage('ui_options_uploadertype_anonymous'),
+		}
 	};
 	
-	$scope.hideMsg = function() {
+	$scope.hideMsg = () => {
 		$scope.showMsg = false;
 	};
 	
-	$scope.save = function() {
+	$scope.save = () => {
 		console.log($scope.values.apiKey);
-		chrome.storage.sync.set($scope.values, function() {
+		$scope.browser.storage.sync.set($scope.values, function() {
 			$scope.showMsg = true;
 		});
 	};
 
-	$scope.restore = function() {
-		chrome.storage.sync.get({
+	$scope.restore = () => {
+		$scope.browser.storage.sync.get({
 			username: '',
 			password: '',
 			service: '1',
 			apiKey: '',
-		}, function(items) {
+		}, items => {
 			$scope.values = items;
 		});
 	};

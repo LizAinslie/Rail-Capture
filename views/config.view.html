@@ -21,6 +21,7 @@
 						<option value="0">i.railrunner16.me ({{ translations.uploaderTypes.user }})</option>
 						<option value="1">Imgur ({{ translations.uploaderTypes.anonymous }})</option>
 						<option value="2">S-Ul ({{ translations.uploaderTypes.apiKey }})</option>
+						<option value="3">Vgy.me ({{ translations.uploaderTypes.apiKey }} | {{ translations.uploaderTypes.anonymous }})</option>
 					</select>
 				</div>
 
@@ -34,7 +35,7 @@
 					<input type="password" name="password" ng-model="values.password" />
 				</div>
 
-				<div ng-if="values.service == 2" class="field">
+				<div ng-if="values.service == 2 || values.service == 3" class="field">
 					<label for="apiKey">{{ translations.apiKey }}</label>
 					<input type="text" name="apiKey" ng-model="values.apiKey" />
 				</div>
@@ -49,9 +50,9 @@
 			</div>
 		</div>
 
-		<script type="text/javascript" src="/js/jquery.min.js"></script>
-		<script type="text/javascript" src="js/angular.min.js"></script>
-		<script type="text/javascript" src="js/semantic.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 		<script type="text/javascript" src="js/rail_capture.js"></script>
 	</body>
 </html>

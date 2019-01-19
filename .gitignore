@@ -1,1 +1,7 @@
+# Build Files
 rail_capture.zip
+rail_capture.xpi
+
+# web-ext Signing
+.web-extension-id
+web-ext-artifacts

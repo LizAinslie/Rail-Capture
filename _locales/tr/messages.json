@@ -30,8 +30,7 @@
                 "example": "TypeError: Cannot read property 'link' of undefined."
             }
         }
-    }
-},
+    },
 
     "ui_options_label_service": {
         "message": "Servis:",
