@@ -31,4 +31,60 @@
             }
         }
     }
+},
+
+    "ui_options_label_service": {
+        "message": "Servis:",
+        "description": "Servis dropdown'u için bir etiket yazısı"
+    },
+    
+    "ui_options_label_username": {
+        "message": "Kullanıcı Adı:",
+        "description": "Bir kullanıcı adı girişi için etiket yazısı"
+    },
+    
+    "ui_options_label_password": {
+        "message": "Şifre:",
+        "description": "Bir şifre girişi için etiket yazısı"
+    },
+    
+    "ui_options_label_api_key": {
+        "message": "API Anahtarı",
+        "description": "Bir API anahtarı girişi için etiket yazısı"
+    },
+    
+    "ui_options_button_save": {
+        "message": "Kaydet",
+        "description": "Kayıt butonu yazısı"
+    },
+    
+    "ui_options_message_header": {
+        "message": "Seçenekler Kaydedildi",
+        "description": "Seçenekler sayfası başarı mesajı başlığı"
+    },
+    
+    "ui_options_message_text": {
+        "message": "Gidin ve ayarlarınızı test edin!",
+        "description": "Seçenekler sayfası başarı mesajı yazısı"
+    },
+
+    "ui_options_authtype_user": {
+        "message": "Kullanıcı Adı + Şifre",
+        "description": "Kullanıcı adı ve şifre yetkilendirme seçeneği için yazı"
+    },
+
+    "ui_options_authtype_anonymous": {
+        "message": "Kimliksiz",
+        "description": "Kimliksiz yetkilendirme seçeneği için yazı"
+    },
+
+    "ui_options_authtype_apikey": {
+        "message": "API Anahtarı",
+        "description": "API anahtarı yetkilendirme seçeneği için yazı"
+    },
+    
+    "ui_menu_options_link": {
+        "message": "Seçenekler",
+        "description": "Menüdeki seçenekler sayfa linki için yazı"
+    }
 }
