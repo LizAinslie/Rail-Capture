@@ -1,0 +1,110 @@
+{
+    "error_no_auth": {
+        "message": "Bitte authentifiziere dich für $url$.",
+        "description": "User is unauthenticated",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "i.railrunner16.me"
+            }
+        }
+    },
+    
+    "error_no_api_key": {
+        "message": "Du brauchst einen API Schlüssel für $url$",
+        "description": "User is unauthenticated",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "s-ul.eu"
+            }
+        }
+    },
+
+    "error_generic": {
+        "message": "Fehler: $err$",
+        "description": "A generic error notification",
+        "placeholders": {
+            "err": {
+                "content": "$1",
+                "example": "TypeError: Cannot read property 'link' of undefined."
+            }
+        }
+    },
+    
+    "error_clipboard": {
+        "message": "Fehler beim kopieren: $err$",
+        "description": "An error notification about a clipboard issue",
+        "placeholders": {
+            "err": {
+                "content": "$1",
+                "example": "TypeError: Cannot read property 'link' of undefined."
+            }
+        }
+    },
+    
+    "ui_options_label_service": {
+        "message": "Service:",
+        "description": "Label text for a service dropdown"
+    },
+    
+    "ui_options_label_username": {
+        "message": "Benutzername:",
+        "description": "Label text for a username input"
+    },
+    
+    "ui_options_label_password": {
+        "message": "Passwort:",
+        "description": "Label text for a password input"
+    },
+    
+    "ui_options_label_api_key": {
+        "message": "API Schlüssel",
+        "description": "Label text for an API key input"
+    },
+    
+    "ui_options_button_save": {
+        "message": "Speichern",
+        "description": "Save button text"
+    },
+    
+    "ui_options_message_header": {
+        "message": "Einstellungen gespeichert",
+        "description": "Header of options page success message"
+    },
+    
+    "ui_options_message_text": {
+        "message": "Teste sie aus!",
+        "description": "Text of options page success message"
+    },
+
+    "ui_options_uploadertype_user": {
+        "message": "Benutzername + Passwort",
+        "description": "Option text for a username and password auth type"
+    },
+
+    "ui_options_uploadertype_anonymous": {
+        "message": "Anonym",
+        "description": "Option text for an anonymous auth type"
+    },
+
+    "ui_options_uploadertype_apikey": {
+        "message": "API Schlüssel",
+        "description": "Option text for an API key auth type"
+    },
+
+    "ui_editor_input_color": {
+        "message": "Farbe",
+        "description": "Input text for a color input"
+    },
+
+    "ui_editor_input_linewidth": {
+        "message": "Zeilenbreite",
+        "description": "Input text for a line width input"
+    },
+    
+    "ui_menu_options_link": {
+        "message": "Einstellungen",
+        "description": "Text of options page link in menu"
+    }
+}
