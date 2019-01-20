@@ -1,6 +1,7 @@
 {
 	"name": "Rail Capture",
-	"version": "0.4.0",
+	"version": "0.4.1",
+	"author": "Landon Gravat",
 	"manifest_version": 2,
 	"description": "Like ShareX, but for ChromeOS!",
 	"offline_enabled": false,
@@ -10,7 +11,11 @@
 	},
 	"default_locale": "en",
 	
-	"options_page": "views/config.view.html",
+	"options_ui": {
+		"page": "views/config.view.html",
+		"open_in_tab": true,
+		"browser_style": false
+	},
 	
 	"icons": {
 		"16": "img/icon16.png",
@@ -57,6 +62,18 @@
 			"id": "railcapture@railrunner16.me"
 		}
 	},
+
+	"browser_specific_settings": {
+		"edge": {
+			"browser_action_next_to_addressbar": true,
+			"browser_action": {
+				"default_title": "Rail Capture",
+				"default_icon": {
+					"25": "img/icon.png"
+				}
+			}
+		}
+	},	
 	
 	"commands": {
 		"take-screenshot": {
