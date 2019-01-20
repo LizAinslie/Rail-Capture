@@ -1,1 +1,100 @@
+{
+    "error_no_auth": {
+        "message": "Для загрузки файла на $url$ требуется авторизация.",
+        "description": "Пользователь не прошел аутентификацию",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "i.railrunner16.me"
+            }
+        }
+    },
+    
+    "error_no_api_key": {
+        "message": " Для загрузки файла на $url$ требуется ключ API",
+        "description": "Пользователь не прошел аутентификацию",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "s-ul.eu"
+            }
+        }
+    },
 
+    "error_generic": {
+        "message": "Произошла ошибка: $err$",
+        "description": "Уведомление об ошибке.",
+        "placeholders": {
+            "err": {
+                "content": "$1",
+                "example": "TypeError: Cannot read property 'link' of undefined."
+            }
+        }
+    },
+    
+    "error_clipboard": {
+        "message": "Произошла ошибка при попытке скопировать в буфер обмен: $err$",
+        "description": "Уведомление об ошибке копирования в буфер обмена.",
+        "placeholders": {
+            "err": {
+                "content": "$1",
+                "example": "TypeError: Cannot read property 'link' of undefined."
+            }
+        }
+    },
+    
+    "ui_options_label_service": {
+        "message": "Сервис загрузки файлов:",
+        "description": "Текст надписи для списка сервисов"
+    },
+    
+    "ui_options_label_username": {
+        "message": "Имя пользователя:",
+        "description": "Поле для ввода имени пользователя"
+    },
+    
+    "ui_options_label_password": {
+        "message": "Пароль:",
+        "description": "Поле для ввода пароля"
+    },
+    
+    "ui_options_label_api_key": {
+        "message": "Ключ доступа к API:",
+        "description": "Поле для ввода ключа API"
+    },
+    
+    "ui_options_button_save": {
+        "message": "Сохранить",
+        "description": "Текст кнопки сохранения"
+    },
+    
+    "ui_options_message_header": {
+        "message": "Настройки сохранены.",
+        "description": "Заголовок страницы об успешном сохранении настроек"
+    },
+    
+    "ui_options_message_text": {
+        "message": "Проверьте свою новую конфигурацию",
+        "description": "Текст страницы об успешном сохранении настроек"
+    },
+
+    "ui_options_uploadertype_user": {
+        "message": "Авторизация по имени пользователя и паролю",
+        "description": "Текст способа авторизации по логину и паролю"
+    },
+
+    "ui_options_uploadertype_anonymous": {
+        "message": "Анонимный вход",
+        "description": "Текст варианта анонимного входа"
+    },
+
+    "ui_options_uploadertype_apikey": {
+        "message": "Авторизация с помощью ключа API",
+        "description": "Текст варианта использования ключа API"
+    },
+    
+    "ui_menu_options_link": {
+        "message": "Настройки",
+        "description": "Текст ссылки на страницу настройки"
+    }
+}
