@@ -63,11 +63,6 @@
         "description": "Label text for an API key input"
     },
     
-    "ui_options_button_save": {
-        "message": "Save",
-        "description": "Save button text"
-    },
-    
     "ui_options_message_header": {
         "message": "Options Saved",
         "description": "Header of options page success message"
@@ -92,9 +87,29 @@
         "message": "API Key",
         "description": "Option text for an API key auth type"
     },
+
+    "ui_editor_input_color": {
+        "message": "Color",
+        "description": "Input text for a color input"
+    },
+
+    "ui_editor_input_linewidth": {
+        "message": "Line Width",
+        "description": "Input text for a line width input"
+    },
     
     "ui_menu_options_link": {
         "message": "Options",
         "description": "Text of options page link in menu"
+    },
+    
+    "ui_actions_save": {
+        "message": "Save",
+        "description": "Save action"
+    },
+    
+    "ui_actions_cancel": {
+        "message": "Cancel",
+        "description": "Cancel action"
     }
 }

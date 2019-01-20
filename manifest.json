@@ -63,17 +63,7 @@
 		}
 	},
 
-	"browser_specific_settings": {
-		"edge": {
-			"browser_action_next_to_addressbar": true,
-			"browser_action": {
-				"default_title": "Rail Capture",
-				"default_icon": {
-					"25": "img/icon.png"
-				}
-			}
-		}
-	},	
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 	
 	"commands": {
 		"take-screenshot": {

@@ -77,13 +77,14 @@ class ExtensionBackground {
 			format: 'png'
 		}, data => {
 			this.cropData(data, coords, croppedData => {
-				// this.browser.tabs.create({url : "/views/editor.html"}, function(tab) {
-				// 	sendMessage({
-				// 		type: 'edit',
-				// 		data: data.dataUri,
-				// 	}, tab);
-				// });
-				this.saveFile(croppedData.dataUri);
+				this.browser.tabs.create({url : "/views/editor.view.html"}, tab => {
+					setTimeout(() => {
+						this.sendMessage({
+							type: 'edit',
+							data: croppedData.dataUri,
+						}, tab);
+					}, 2000)
+				});
 			});
 		});
 	}
@@ -107,8 +108,9 @@ class ExtensionBackground {
 	}
 
 	gotMessage(request, sender, sendResponse) {
+		console.log(request, sender);
 		if (request.type == 'coords') this.capture(request.coords);
-		// if (request.type == 'save-img') saveFile(request.dataUri);
+		else if (request.type == 'save-img') this.saveFile(request.data);
 	
 		sendResponse({});
 	}
