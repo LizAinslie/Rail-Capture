@@ -1,0 +1,1 @@
+C:\"Program Files"\"7-Zip"\7z.exe a -tzip rail_capture.zip manifest.json LICENSE _locales img js views

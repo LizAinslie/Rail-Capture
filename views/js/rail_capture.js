@@ -80,6 +80,7 @@ app.controller('editorPage', function($scope) {
 		colorPlaceholder:  $scope.browser.i18n.getMessage('ui_editor_input_color'),
 		lineWidthPlaceholder:  $scope.browser.i18n.getMessage('ui_editor_input_linewidth'),
 		save: $scope.browser.i18n.getMessage('ui_actions_save'),
+		cancel: $scope.browser.i18n.getMessage('ui_actions_cancel'),
 	};
 
 	$scope.browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -89,27 +90,32 @@ app.controller('editorPage', function($scope) {
 	});
 	
 	$scope.save = () => {
-		$scope.browser.runtime.sendMessage({type: 'save-img', data: $scope.editor.toDataUri()}, response => {});
+		$scope.browser.runtime.sendMessage({
+			type: 'save-img',
+			data: $scope.editor.toDataUri(),
+		}, response => {});
 		$scope.exit();
 	};
 
 	$scope.exit = () => {
-		$scope.browser.tabs.query({
-			currentWindow: true,
-			active: true
-		}, tabs => {
-			$scope.browser.tabs.discard(tabs[0].id);
-		});
+		window.close();
 	};
 
 	document.addEventListener('keydown', e => {
-		e.preventDefault();
-		e.stopPropagation();
+		if (e.keyCode == 13) {
+			e.preventDefault();
+			e.stopPropagation();
 
-		if (e.keyCode == 13) $scope.save();
-		else if (e.keyCode == 27) $scope.exit();
-		else return true;
+			$scope.save();
 
-		return false;
+			return false
+		} else if (e.keyCode == 27) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			$scope.exit();
+
+			return false;
+		}
 	});
 });

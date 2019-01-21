@@ -45,7 +45,11 @@
 						<i class="check icon"></i>
 					</button>
 				</div>
-				<button class="ui small positive button" ng-click="save()">{{ translations.save }}</button>
+				<div class="ui small buttons editor-toolbar-item">
+					<button class="ui negative icon button" ng-click="exit()">{{ translations.cancel }}</button>
+					<div class="or"></div>
+					<button class="ui positive icon button" ng-click="save()">{{ translations.save }}</button>
+				</div>
 			</div>
 			<canvas id="editor">Loading the editor...</canvas>
 		</div>
